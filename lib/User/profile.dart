@@ -48,77 +48,22 @@ class Profile extends StatelessWidget {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                          padding: const EdgeInsets.only(left: 20, top: 37),
-                          child: const CircleAvatar(
-                              radius: 90,
-                              backgroundImage:
-                                  AssetImage("assets/20221023_152100.jpg"))),
-                      Container(
-                        padding: const EdgeInsets.only(top: 30, right: 30),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            const Text(
-                              "Ziad Galal",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Text(
-                              "01069161841",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Column(
-                              children: [
-                                const Text(
-                                  "Remaining subscription",
-                                  selectionColor: Colors.white,
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Row(
-                                  children: [
-                                    const Text("75%"),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Stack(
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              color: Colors.black,
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          width: 170,
-                                          height: 7,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              color: Colors.green,
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          width: 120,
-                                          height: 7,
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            Container(
+                                // padding: const EdgeInsets.only( top: 37),
+                                child: const CircleAvatar(
+                                    radius: 70,
+                                    backgroundImage: AssetImage(
+                                        "assets/20221023_152100.jpg"))),
+                            //                                         const SizedBox(
+                            //   height: 15,
+                            // ),
+
                             ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor:
@@ -126,95 +71,103 @@ class Profile extends StatelessWidget {
                                     elevation: 10,
                                     shadowColor: Colors.black,
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 50, vertical: 20)),
+                                        horizontal: 35, vertical: 15)),
                                 onPressed: () {},
                                 child: const Text(
                                   "Beginner",
-                                  style: TextStyle(fontSize: 20),
+                                  style: TextStyle(fontSize: 15),
                                 )),
-                            const SizedBox(
-                              height: 15,
-                            )
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  height: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: const Color.fromARGB(255, 47, 41, 41),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.only(left: 20, top: 20),
-                        child: const Text(
-                          "About Me",
-                          style: TextStyle(fontSize: 30, color: Colors.white),
-                        ),
                       ),
                       Container(
-                        padding: const EdgeInsets.only(left: 20, top: 20),
-                        child: const Text(
-                          "Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal,Ziad Galal",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 87, 87, 87),
-                              fontWeight: FontWeight.w900,
-                              fontSize: 15),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  height: 220,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: const Color.fromARGB(255, 47, 41, 41),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.only(left: 20, top: 20),
-                        child: const Text(
-                          "My Exercises",
-                          style: TextStyle(fontSize: 30, color: Colors.white),
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.only(left: 20, top: 20),
-                        child: const Text(
-                          "Favourite",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 87, 87, 87),
-                              fontWeight: FontWeight.w900,
-                              fontSize: 15),
-                        ),
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 100,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.only(top: 28, right: 30),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Exercises(
-                                  ex1: "awl tmryn",
-                                  ex2: "eltany",
-                                  ex3: "eltalt",
-                                  ex4: "elrab3",
-                                  ex5: "elams",
-                                )
+                                Text(
+                                  "Full Name:",
+                                  style: TextStyle(
+                                      color: Colors.white24, fontSize: 16),
+                                ),
+                                Text(
+                                  "Ziad Galal",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                                // const SizedBox(
+                                //   height: 10,
+                                // ),
                               ],
+                            ),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Contact:",
+                                  style: TextStyle(
+                                      color: Colors.white24, fontSize: 16),
+                                ),
+                                Text(
+                                  "01069161841",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Subscription:",
+                                  style: TextStyle(
+                                      color: Colors.white24, fontSize: 16),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        Container(
+                                          decoration: BoxDecoration(
+                                              color: Colors.black,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          width: 120,
+                                          height: 7,
+                                        ),
+                                        Container(
+                                          decoration: BoxDecoration(
+                                              color: Colors.green,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          width: 85,
+                                          height: 7,
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    const Text("75%"),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 20,
                             ),
                           ],
                         ),
@@ -222,58 +175,158 @@ class Profile extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  height: 200,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: const Color.fromARGB(255, 47, 41, 41),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Profileedit()));
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 16),
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: const Color.fromARGB(255, 47, 41, 41),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(left: 20, top: 20),
+                          child: const Text(
+                            "About Me",
+                            style: TextStyle(fontSize: 30, color: Colors.white),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(left: 20, top: 20),
+                          child: const Center(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(vertical: 20.0),
+                              child: Text(
+                                "Add Bio Here",
+                                style: TextStyle(
+                                    color: Colors.white24, fontSize: 15),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.only(left: 20, top: 20),
-                        child: const Text(
-                          "Social Media",
-                          style: TextStyle(fontSize: 30, color: Colors.white),
+                ),
+                // Container(
+                //   margin: const EdgeInsets.only(top: 16),
+                //   height: 220,
+                //   width: double.infinity,
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.circular(25),
+                //     color: const Color.fromARGB(255, 47, 41, 41),
+                //   ),
+                //   child: Column(
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       Container(
+                //         padding: const EdgeInsets.only(left: 20, top: 20),
+                //         child: const Text(
+                //           "My Exercises",
+                //           style: TextStyle(fontSize: 30, color: Colors.white),
+                //         ),
+                //       ),
+                //       Container(
+                //         padding: const EdgeInsets.only(left: 20, top: 20),
+                //         child: const Text(
+                //           "Favourite",
+                //           style: TextStyle(
+                //               color: Color.fromARGB(255, 87, 87, 87),
+                //               fontWeight: FontWeight.w900,
+                //               fontSize: 15),
+                //         ),
+                //       ),
+                //       SizedBox(
+                //         width: double.infinity,
+                //         height: 100,
+                //         child: ListView(
+                //           scrollDirection: Axis.horizontal,
+                //           children: [
+                //             Row(
+                //               crossAxisAlignment: CrossAxisAlignment.start,
+                //               children: [
+                //                 Exercises(
+                //                   ex1: "awl tmryn",
+                //                   ex2: "eltany",
+                //                   ex3: "eltalt",
+                //                   ex4: "elrab3",
+                //                   ex5: "elams",
+                //                 )
+                //               ],
+                //             ),
+                //           ],
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Profileedit()));
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 16),
+                    height: 200,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: const Color.fromARGB(255, 47, 41, 41),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(left: 20, top: 20),
+                          child: const Text(
+                            "Social Media",
+                            style: TextStyle(fontSize: 30, color: Colors.white),
+                          ),
                         ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.only(left: 20, top: 20),
-                        child: const Text(
-                          "Follow Me On",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 87, 87, 87),
-                              fontWeight: FontWeight.w900,
-                              fontSize: 15),
+                        Container(
+                          padding: const EdgeInsets.only(left: 20, top: 20),
+                          child: const Text(
+                            "Follow Me On",
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 87, 87, 87),
+                                fontWeight: FontWeight.w900,
+                                fontSize: 15),
+                          ),
                         ),
-                      ),
-                      Container(
-                          margin: const EdgeInsets.only(
-                              top: 20, left: 20, right: 20),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(
-                                Icons.facebook,
-                                color: Colors.white,
-                                size: 50,
-                              ),
-                              Icon(
-                                Icons.facebook,
-                                color: Colors.white,
-                                size: 50,
-                              ),
-                              Icon(
-                                Icons.facebook,
-                                color: Colors.white,
-                                size: 50,
-                              )
-                            ],
-                          ))
-                    ],
+                        Container(
+                            margin: const EdgeInsets.only(top: 20),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.snapchat,
+                                  color: Colors.white24,
+                                  size: 50,
+                                ),
+                                Icon(
+                                  Icons.facebook,
+                                  color: Colors.white24,
+                                  size: 50,
+                                ),
+                                Icon(
+                                  Icons.tiktok_outlined,
+                                  color: Colors.white24,
+                                  size: 50,
+                                )
+                              ],
+                            ))
+                      ],
+                    ),
                   ),
                 )
               ],
