@@ -1,5 +1,6 @@
 import 'package:gym_app/Model/Exercise.dart';
 import 'package:gym_app/Model/Set.dart';
+import 'package:gym_app/Model/User.dart';
 import 'package:gym_app/Model/Workout.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -74,7 +75,7 @@ class SetDatabase {
     return streamOfSets;
   }
 
-    Future<List<TestSet>> getSetsByExerciseId(dynamic exerciseId) async {
+  Future<List<TestSet>> getSetsByExerciseId(dynamic exerciseId) async {
     // Here you should use your database client to fetch sets by exercise_id.
     final response = await Supabase.instance.client
         .from('sets')
@@ -82,9 +83,8 @@ class SetDatabase {
         .eq('exercise_id', exerciseId);
 
     // If successful, convert the result to a list of TestSet objects
-      return TestSet.toListOfTestSets(response);
+    return TestSet.toListOfTestSets(response);
   }
-
 
   // Update Set
   // Future updateSetRepsAndWeight(TestSet oldset, String newName) async {
@@ -94,5 +94,64 @@ class SetDatabase {
   // Delete Set
   Future deleteSet(TestSet thisExercise) async {
     await sets.delete().eq('id', thisExercise.id!);
+  }
+}
+
+// ================================================================
+
+class UserDatabase {
+  final users = Supabase.instance.client.from('users');
+
+  // Creat Set
+  Future addNewUser(AppUser newUser) async {
+    await users.insert(newUser.toMap());
+  }
+
+  // Read Set
+  Stream<Iterable<AppUser>> getUsers() {
+    final streamOfSets = Supabase.instance.client
+        .from('users')
+        .stream(primaryKey: ['id']).map(
+            (data) => data.map((setMap) => AppUser.fromJson(setMap)));
+    return streamOfSets;
+  }
+
+  Future<bool> checkForEmails(String email) async {
+    final streamOfSets = Supabase.instance.client
+        .from('users')
+        .stream(primaryKey: ['id']).map(
+            (data) => data.map((setMap) => AppUser.fromJson(setMap)));
+
+      final List<String> emailList = [];
+
+      await for (final userBatch in streamOfSets) {
+        emailList.addAll(userBatch.map((user) => user.email).toList());
+
+    }
+
+    
+
+      return emailList.contains(email);
+  }
+
+  //   Future<List<TestSet>> getSetsByExerciseId(dynamic exerciseId) async {
+  //   // Here you should use your database client to fetch sets by exercise_id.
+  //   final response = await Supabase.instance.client
+  //       .from('sets')
+  //       .select('*')
+  //       .eq('exercise_id', exerciseId);
+
+  //   // If successful, convert the result to a list of TestSet objects
+  //     return TestSet.toListOfTestSets(response);
+  // }
+
+  // Update Set
+  // Future updateSetRepsAndWeight(TestSet oldset, String newName) async {
+  //   await sets.update({'name': newName}).eq('id', oldset.id!);
+  // }
+
+  // Delete Set
+  Future deleteUser(AppUser thisUser) async {
+    await users.delete().eq('id', thisUser.id);
   }
 }

@@ -156,6 +156,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
           );
         });
   }
+  
 
   void _confirmDeleteWorkout(BuildContext context) {
     showDialog(

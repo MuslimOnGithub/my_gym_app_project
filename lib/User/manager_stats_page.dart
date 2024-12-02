@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:gym_app/Components/manager_chart.dart';
 import 'package:gym_app/Components/userinfo.dart';
 
@@ -16,7 +17,7 @@ class ManagerOverViewPage extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            margin: EdgeInsets.only(right: 5),
+            margin: const EdgeInsets.only(right: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               // color: Colors.white10,
@@ -30,7 +31,7 @@ class ManagerOverViewPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(top: 6.0, left: 10),
                       child: Text(
-                        "Subscripers over time",
+                        "Members over time",
                         style: TextStyle(fontSize: 15, color: Colors.white54),
                       ),
                     ),
@@ -44,8 +45,7 @@ class ManagerOverViewPage extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only
-                  (top: 30.0, bottom: 50),
+                  padding: const EdgeInsets.only(top: 30.0, bottom: 50),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -90,18 +90,33 @@ class ManagerOverViewPage extends StatelessWidget {
                 IconButton(
                     onPressed: () {
                       // dialog
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: const Text("Hint"),
+                            content:
+                                const Text("Members under this list have gotten extremely close to the end of their gym membership!"),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Get.back(),
+                                child: const Text("Cancel"),
+                              ),
+                            ],
+                          );
+                        },
+                      );
                     },
                     icon: const Icon(Icons.error_outline)),
               ],
             ),
           ),
-
           const Padding(
             padding: EdgeInsets.all(12.0),
             child: UserInfo(
-              subscription: "5",
+              subscription: "Jan 13, 2024",
               imagee: "4",
-              username: "55",
+              username: "Abderahman Atef",
             ),
           ),
           // const Padding(

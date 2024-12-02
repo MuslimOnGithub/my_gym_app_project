@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gym_app/Admin/adminlogin.dart';
+import 'package:gym_app/Model/User.dart';
+import 'package:gym_app/Model/app_database.dart';
 import 'package:gym_app/Navigation.dart';
 
 class Login extends StatelessWidget {
@@ -8,9 +10,18 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _email = TextEditingController();
+    TextEditingController _password = TextEditingController();
+
+    UserDatabase userDatabase = UserDatabase();
+
+    bool isEmailInList(String email, List<String> emailList) {
+      return emailList.contains(email);
+    }
+
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Column(
+      body: ListView(
         children: [
           Stack(
             children: [
@@ -38,21 +49,24 @@ class Login extends StatelessWidget {
               ),
             ],
           ),
-           SizedBox(height: MediaQuery.sizeOf(context).height / 70),
-          const Text(
-            "Login",
-            style: TextStyle(
-              color: Color.fromARGB(255, 0, 255, 213),
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
+          SizedBox(height: MediaQuery.sizeOf(context).height / 70),
+          Center(
+            child: const Text(
+              "Login",
+              style: TextStyle(
+                color: Color.fromARGB(255, 0, 255, 213),
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-           SizedBox(height: MediaQuery.sizeOf(context).height / 50),
+          SizedBox(height: MediaQuery.sizeOf(context).height / 50),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               children: [
                 TextField(
+                  controller: _email,
                   decoration: InputDecoration(
                     labelText: 'Email',
                     labelStyle: const TextStyle(color: Colors.white),
@@ -66,6 +80,7 @@ class Login extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 TextField(
+                  controller: _password,
                   decoration: InputDecoration(
                     labelText: 'Password',
                     labelStyle: const TextStyle(color: Colors.white),
@@ -78,12 +93,18 @@ class Login extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {
-                    Get.off(() => const NavPage(isManager: false,));
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => const HomePage()));
+                  onPressed: () async {
+                    if (_email.text == '' || _password.text == '') {
+                      showInSnackBar(context, "Improper Email or Password");
+                      print("+");
+                    } else {
+                      Get.off(() => const NavPage(
+                            isManager: false,
+                          ));
+                    }
+
+                    // _email.clear();
+                    // _password.clear();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 0, 255, 213),
@@ -118,5 +139,14 @@ class Login extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void showInSnackBar(context, message) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: Colors.grey.shade900,
+        content: Text(
+          message,
+          style: const TextStyle(color: Colors.white),
+        )));
   }
 }

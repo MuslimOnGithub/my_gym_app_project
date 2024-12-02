@@ -65,10 +65,10 @@ class HomePage extends StatelessWidget {
                                         : i == 4
                                             ? Container(
                                                 margin:
-                                                    EdgeInsets.only(left: 100),
+                                                    EdgeInsets.only(left: 10),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.start,
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
                                                       "Remaining subscription",
                                                       style: TextStyle(
                                                           color: Colors.white,
-                                                          fontSize: 50,
+                                                          fontSize: 20,
                                                           fontWeight:
                                                               FontWeight.bold),
                                                     ),
