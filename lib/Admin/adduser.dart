@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gym_app/Login&Signup/login.dart';
+// import 'package:gym_app/Login&Signup/login.dart';
 import 'package:gym_app/Navigation.dart';
 
 class Adduser extends StatelessWidget {
@@ -60,7 +60,7 @@ class Adduser extends StatelessWidget {
                       width: 200,
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.off(() => const NavPage());
+                          // Get.off(() => const NavPage());
                           // Navigator.push(
                           //     context,
                           //     MaterialPageRoute(

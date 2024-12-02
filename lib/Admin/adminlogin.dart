@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:gym_app/Admin/adminhomebage.dart';
+import 'package:gym_app/Navigation.dart';
 
 // ignore: camel_case_types
 class adminlogin extends StatelessWidget {
@@ -20,7 +21,7 @@ class adminlogin extends StatelessWidget {
                 width: double.infinity,
                 child: Image.asset(
                   "assets/1000_F_524378456_7iH4roEgy8t8351zKypjRumlIbRfwhIO.jpg",
-                  fit: BoxFit.fill,
+                  fit: BoxFit.fitHeight,
                 ),
               ),
               Container(
@@ -39,7 +40,7 @@ class adminlogin extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 100),
+           SizedBox(height: MediaQuery.sizeOf(context).height / 70),
           const Text(
             "Hello Coach,",
             style: TextStyle(
@@ -48,7 +49,7 @@ class adminlogin extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 50),
+           SizedBox(height: MediaQuery.sizeOf(context).height / 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
@@ -80,7 +81,7 @@ class adminlogin extends StatelessWidget {
                 const SizedBox(height: 60),
                 ElevatedButton(
                   onPressed: () {
-                    Get.to(AdminHomePage());
+                    Get.offAll(() => const NavPage(isManager: true,));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 0, 255, 213),

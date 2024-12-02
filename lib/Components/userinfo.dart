@@ -19,42 +19,45 @@ class UserInfo extends StatelessWidget {
         Get.to(const Userinfoatadmin());
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        height: 100,
+        margin: const EdgeInsets.only(bottom: 12),
+        height: 110,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           color: const Color.fromARGB(255, 47, 41, 41),
         ),
-        child: Row(
-          children: [
-            const SizedBox(width: 10),
-            CircleAvatar(
-              radius: 40,
-              backgroundImage: imagee != null ? AssetImage(imagee!) : null,
-              backgroundColor: Colors.grey,
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    username,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    "Remaining subscription: $subscription days",
-                    style: const TextStyle(color: Colors.white, fontSize: 14),
-                  ),
-                ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12.0),
+          child: Row(
+            children: [
+              const SizedBox(width: 16),
+              CircleAvatar(
+                radius: 40,
+                backgroundImage: imagee != null ? AssetImage(imagee!) : null,
+                backgroundColor: Colors.grey,
               ),
-            ),
-          ],
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      username,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "Since: $subscription",
+                      style: const TextStyle(color: Colors.white, fontSize: 14),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

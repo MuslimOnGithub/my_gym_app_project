@@ -26,13 +26,6 @@ class Profile extends StatelessWidget {
             color: Colors.white,
           )
         ],
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(Icons.arrow_back),
-          color: Colors.white,
-        ),
       ),
       body: ListView(
         children: [

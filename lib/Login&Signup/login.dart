@@ -38,7 +38,7 @@ class Login extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 100),
+           SizedBox(height: MediaQuery.sizeOf(context).height / 70),
           const Text(
             "Login",
             style: TextStyle(
@@ -47,7 +47,7 @@ class Login extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 50),
+           SizedBox(height: MediaQuery.sizeOf(context).height / 50),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
@@ -79,7 +79,7 @@ class Login extends StatelessWidget {
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
-                    Get.off(() => const NavPage());
+                    Get.off(() => const NavPage(isManager: false,));
                     // Navigator.push(
                     //     context,
                     //     MaterialPageRoute(
